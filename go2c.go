@@ -243,6 +243,8 @@ func (g2c *Go2CBase) Auto(vt interface{}) (p uintptr) {
 		p = Go2C.Uintptr(v)
 	case nil:
 		p = uintptr(unsafe.Pointer(nil))
+	case ValueInf:
+		p = v.Value().(uintptr)
 	default:
 		panic(fmt.Sprintln("type error"))
 	}
