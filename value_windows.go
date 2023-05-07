@@ -44,6 +44,13 @@ func (v *Value) ToFloat64Slice(len int) []float64 {
 	return C2Go.Float64Slice(v.ptr, len)
 }
 
+func (v *Value) ToFloat32() float32 {
+	return C2Go.Float32(v.ptr)
+}
+
+func (v *Value) ToFloat32Slice(len int) []float32 {
+	return C2Go.Float32Slice(v.ptr, len)
+}
 func (v *Value) ToInt64() int64 {
 	return C2Go.Int64(v.ptr)
 }

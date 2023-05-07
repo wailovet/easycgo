@@ -9,6 +9,8 @@ type ValueInf interface {
 	ToStringSlice(len int) []string
 	ToFloat64() float64
 	ToFloat64Slice(len int) []float64
+	ToFloat32() float32
+	ToFloat32Slice(len int) []float32
 	ToInt64() int64
 	ToInt64Slice(len int) []int64
 	ToInt() int
