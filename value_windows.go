@@ -104,6 +104,10 @@ func (v *Value) Value() interface{} {
 	return v.ptr
 }
 
+func (v *Value) IsNil() bool {
+	return v.ptr == 0
+}
+
 func wcharPtrFromString(s string) (*C.wchar_t, error) {
 	p, err := windows.UTF16PtrFromString(s)
 	return (*C.wchar_t)(p), err

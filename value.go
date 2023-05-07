@@ -24,6 +24,7 @@ type ValueInf interface {
 	ToBytes(len int) []byte
 	ToBytes4Char() []byte
 	Value() interface{}
+	IsNil() bool
 }
 
 func pathExists(path string) bool {

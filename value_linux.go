@@ -86,6 +86,10 @@ func (v *Value) ToBytes4Char() []byte {
 	return C2Go.Bytes(v.ptr)
 }
 
+func (v *Value) IsNil() bool {
+	return v.ptr == 0
+}
+
 func (v *Value) Value() interface{} {
 	return v.ptr
 }

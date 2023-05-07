@@ -176,6 +176,14 @@ func (g2c *Go2CBase) Uint64(d uint64) uintptr {
 	return uintptr(d)
 }
 
+func (g2c *Go2CBase) Bool(d bool) uintptr {
+	if d {
+		return 1
+	} else {
+		return 0
+	}
+}
+
 func (g2c *Go2CBase) Chars(d string) uintptr {
 	b := []byte(d)
 	var newByte []byte
@@ -193,6 +201,8 @@ func (g2c *Go2CBase) Auto(vt interface{}) (p uintptr) {
 		p = Go2C.Chars(v)
 	case []byte:
 		p = Go2C.Chars(string(v))
+	case bool:
+		p = Go2C.Bool(v)
 	case int:
 		p = Go2C.Int(v)
 	case int8:
@@ -246,7 +256,7 @@ func (g2c *Go2CBase) Auto(vt interface{}) (p uintptr) {
 	case ValueInf:
 		p = v.Value().(uintptr)
 	default:
-		panic(fmt.Sprintln("type error"))
+		panic(fmt.Sprintln("type error:", v))
 	}
 	return
 }
