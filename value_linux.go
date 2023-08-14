@@ -6,6 +6,10 @@ type Value struct {
 	ptr uintptr
 }
 
+func (v *Value) SetPtr(ptr uintptr) {
+	v.ptr = ptr
+}
+
 func (v *Value) ToBool() bool {
 	return C2Go.Bool(v.ptr)
 }

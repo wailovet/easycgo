@@ -38,6 +38,10 @@ func (ec *EasyCgo) MustFind(name string) *EasyCgoProc {
 	}
 }
 
+func (ec *EasyCgo) Release() {
+	ec.dll.Release()
+}
+
 func (ecp *EasyCgoProc) Call(args ...interface{}) ValueInf {
 
 	uiargs := []uintptr{}

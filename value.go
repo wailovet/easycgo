@@ -3,6 +3,7 @@ package easycgo
 import "os"
 
 type ValueInf interface {
+	SetPtr(ptr uintptr)
 	ToBool() bool
 	ToString() string
 	ToString4w() string

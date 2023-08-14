@@ -83,6 +83,11 @@ func (ec *EasyCgo) MustFind(name string) *EasyCgoProc {
 	}
 }
 
+func (ec *EasyCgo) Release() {
+	C.dlclose(unsafe.Pointer(ec.so))
+	ec.so = 0
+}
+
 var null = unsafe.Pointer(nil)
 
 func (ecp *EasyCgoProc) call(args ...interface{}) uintptr {
